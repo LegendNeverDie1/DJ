@@ -47,5 +47,5 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
-    implementation("com.github.MikeOrtiz:TouchImageView:1.4.1")
+    implementation("com.github.MikeOrtiz:TouchImageView:3.0.4") // Use a valid version
 }
