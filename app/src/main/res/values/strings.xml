@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="jewellery_image">Jewellery Image</string>
+    <string name="jewellery">Jewellery</string>
+    <string name="download">Download</string>
+    <string name="download_image">Download Image</string>
+    <string name="share_image">Share Image</string>
+</resources>

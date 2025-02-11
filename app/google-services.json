@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "470055180389",
+    "project_id": "dewaljewellers-dbac9",
+    "storage_bucket": "dewaljewellers-dbac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470055180389:android:5d2a41fb509b8f09d80e8c",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTUKf8l79YPMmf4Qah3dxXvkSmJ2TddVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
