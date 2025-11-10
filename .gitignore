@@ -1,15 +1,31 @@
+# Android/IntelliJ
+.idea/
 *.iml
-.gradle
-/local.properties
+
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Local config
+local.properties
+
+# Android Studio Generated
+.DS_Store
+/captures
+output.json
+
+# Native builds
+.externalNativeBuild
+.cxx
+
+# .idea specifics (already included but safe)
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+
+# Logs
+*.log

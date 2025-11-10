@@ -59,6 +59,20 @@ public class GridItemActivity extends AppCompatActivity {
                     }
                 });
     }
+//    private void fetchPhotos() {
+//        db.collection("Jewellery").document(jewelleryId)
+//                .collection("photos").document(photoId)
+//                .get()
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful() && task.getResult() != null) {
+//                        photosList.add(task.getResult());
+//                        adapter.notifyDataSetChanged();
+//                        setInitialPhotoPosition();
+//                    } else {
+//                        Log.w("GridItemActivity", "Error getting document.", task.getException());
+//                    }
+//                });
+//    }
 
     private void setInitialPhotoPosition() {
         for (int i = 0; i < photosList.size(); i++) {
