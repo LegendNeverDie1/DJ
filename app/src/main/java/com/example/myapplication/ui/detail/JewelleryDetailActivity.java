@@ -2,6 +2,9 @@ package com.example.myapplication.ui.detail;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +12,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.FirestoreRepository;
 import com.example.myapplication.model.Photo;
 import com.example.myapplication.util.EndlessScrollListener;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -35,11 +39,20 @@ public class JewelleryDetailActivity extends AppCompatActivity {
         jewelleryId = getIntent().getStringExtra("jewelleryId");
         if (jewelleryId == null) { finish(); return; }
 
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        String jewelleryName = getIntent().getStringExtra("jewelleryName");
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(jewelleryName != null ? jewelleryName : "Photos");            // 🔹 title
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);    // 🔹 back arrow
+        }
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         rv = findViewById(R.id.photosRecyclerView);
         GridLayoutManager gm = new GridLayoutManager(this, 2);
         rv.setLayoutManager(gm);
-        adapter = new PhotosAdapter(this, jewelleryId);
+        adapter = new PhotosAdapter(this, jewelleryId, jewelleryName);
         rv.setAdapter(adapter);
 
 
@@ -79,4 +92,14 @@ public class JewelleryDetailActivity extends AppCompatActivity {
         }
         scrollListener.setLoading(false);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

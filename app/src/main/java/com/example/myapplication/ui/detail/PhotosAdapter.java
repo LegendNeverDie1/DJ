@@ -21,11 +21,13 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.VH> {
     private final Context context;
     private final List<Photo> items = new ArrayList<>();
     private final String jewelleryId;
+    private final String jewelleryName;
 
 
-    public PhotosAdapter(Context context, String jewelleryId) {
+    public PhotosAdapter(Context context, String jewelleryId, String jewelleryName) {
         this.context = context;
         this.jewelleryId = jewelleryId;
+        this.jewelleryName = jewelleryName;
     }
 
 
@@ -51,6 +53,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.VH> {
             Intent i = new Intent(context, GridItemActivity.class);
             i.putExtra("jewelleryId", jewelleryId);
             i.putExtra("photoId", p.getId());
+            i.putExtra("jewelleryName", jewelleryName);
             context.startActivity(i);
         });
     }

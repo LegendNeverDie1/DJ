@@ -2,12 +2,16 @@ package com.example.myapplication.ui.viewer;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import com.example.myapplication.R;
 import com.example.myapplication.data.FirestoreRepository;
 import com.example.myapplication.model.Photo;
 import com.example.myapplication.PhotosPagerAdapter; // reuse your existing adapter
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +23,7 @@ public class GridItemActivity extends AppCompatActivity {
     private final List<com.google.firebase.firestore.DocumentSnapshot> photosList = new ArrayList<>();
     private final FirestoreRepository repo = new FirestoreRepository();
     private String jewelleryId;
+    private String jewelleryName;
     private String photoId;
 
 
@@ -32,6 +37,15 @@ public class GridItemActivity extends AppCompatActivity {
         photoId = getIntent().getStringExtra("photoId");
         if (jewelleryId == null || photoId == null) { finish(); return; }
 
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        jewelleryName = getIntent().getStringExtra("jewelleryName");
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(jewelleryName != null ? jewelleryName : "Photos");         // 🔹 title
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 🔹 back
+        }
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         viewPager = findViewById(R.id.viewPager);
         adapter = new PhotosPagerAdapter(this, photosList);
@@ -56,5 +70,13 @@ public class GridItemActivity extends AppCompatActivity {
                 break;
             }
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

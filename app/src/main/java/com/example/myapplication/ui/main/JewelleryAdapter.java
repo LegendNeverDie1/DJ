@@ -48,6 +48,7 @@ public class JewelleryAdapter extends RecyclerView.Adapter<JewelleryAdapter.VH> 
         h.itemView.setOnClickListener(v -> {
             Intent i = new Intent(context, JewelleryDetailActivity.class);
             i.putExtra("jewelleryId", j.getId());
+            i.putExtra("jewelleryName", j.getName());
             context.startActivity(i);
         });
     }
