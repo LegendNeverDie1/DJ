@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.model;
 
 public class Jewellery {
     private String id;
@@ -11,11 +11,7 @@ public class Jewellery {
         this.image = image;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getImage() { return image; }
 }

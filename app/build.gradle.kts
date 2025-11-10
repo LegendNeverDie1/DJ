@@ -47,4 +47,5 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
     implementation("com.github.MikeOrtiz:TouchImageView:3.0.4")
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }
