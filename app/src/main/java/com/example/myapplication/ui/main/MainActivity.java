@@ -3,6 +3,7 @@ package com.example.myapplication.ui.main;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         rv = findViewById(R.id.jewelleryRecyclerView);
-        lm = new LinearLayoutManager(this);
+        lm = new GridLayoutManager(this,2);
         rv.setLayoutManager(lm);
         adapter = new JewelleryAdapter(this);
         rv.setAdapter(adapter);
